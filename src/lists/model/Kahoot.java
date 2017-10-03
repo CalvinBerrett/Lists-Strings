@@ -1,6 +1,6 @@
 package lists.model;
 
-public class Lists
+public class Kahoot
 {
 
 }
