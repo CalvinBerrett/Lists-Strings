@@ -45,6 +45,11 @@ public class ListsController
 				{
 					popup.displayText(currentCreator.substring(currentLetterIndex, currentLetterIndex + 1));
 				}
+				String topic = currentKahoot.getTopic();
+				for (int letter = currentKahoot.getTopic().length() - 1; letter >= 0; letter -= 1)
+				{
+					popup.displayText(topic.substring(letter, letter + 1));
+				}
 			}
 		}
 		/** Fills list of myKahoots
