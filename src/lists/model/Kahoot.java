@@ -26,4 +26,9 @@ public class Kahoot
 		String description = "This Kahoot was made by " + creator + " and has " + questionCount + " questions.";
 		return description;
 	}
+	
+	public String getCreator()
+	{
+		return creator;
+	}
 }
