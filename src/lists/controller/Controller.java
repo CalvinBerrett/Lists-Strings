@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import lists.model.Kahoot;
 import lists.view.ListsDisplay;
 
-public class ListsController
+public class Controller
 {
 		private List<Kahoot> myKahoots;
+//		private PopupDisplay popup;
 		private ListsDisplay popup;
 //		private List<Kahoot> mySecondKahoot;
 		
-		public ListsController()
+		public Controller()
 		{
 			myKahoots = new ArrayList<Kahoot>();
 			popup = new ListsDisplay();
@@ -105,6 +106,15 @@ public class ListsController
 				popup.displayText("There are now only " + myKahoots.size() + " items left in the list!");	
 		}
 		
+		public ListsDisplay getPopu()
+		{
+			return popup;
+		}
+		
+		public ArrayList<Kahoot> getMyKahoots()
+		{
+			return (ArrayList<Kahoot>)myKahoots;
+		}
 //		private void mySecondKahoot()
 //		{
 //			Questions questionOne = new question("Who's the best around?");
