@@ -23,7 +23,8 @@ public class ListsController
 			Kahoot myFirstKahoot = new Kahoot();
 			myKahoots.add(myFirstKahoot);
 			fillTheList();
-			showTheList();
+//			showTheList();
+			changeTheList();
 		}
 		private void showTheList()
 		{
@@ -69,6 +70,16 @@ public class ListsController
 			myKahoots.add(animalColor);
 			myKahoots.add(presidents);
 		}
+		
+		private void changeTheList()
+		{
+			popup.displayText("The current list size is: " + myKahoots.size());
+			Kahoot removed = myKahoots.remove(3);
+			popup.displayText("I removed the Kahoot by " + removed.getCreator());
+			popup.displayText("The list now has: " + myKahoots.size() + " items inside.");
+			myKahoots.add(0, removed);
+			
+		} 
 		
 //		private void mySecondKahoot()
 //		{
