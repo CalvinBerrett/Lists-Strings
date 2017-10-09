@@ -23,8 +23,10 @@ public class ListsController
 			Kahoot myFirstKahoot = new Kahoot();
 			myKahoots.add(myFirstKahoot);
 			fillTheList();
-//			showTheList();
+			showTheList();
 			changeTheList();
+			messWithList();
+			showTheList();
 		}
 		private void showTheList()
 		{
@@ -35,22 +37,22 @@ public class ListsController
 				Kahoot currentKahoot = myKahoots.get(index);
 				String creator = currentKahoot.getCreator();
 				popup.displayText(myKahoots.get(index).toString());
-				if(currentCreator.equals("what ever"))
-				{
-					for (int loop = 0; loop < 5; loop +=1)
-					{
-						popup.displayText("Wow, nobody does a lot");
-					}
-				}
-				for(int currentLetterIndex = 0; currentLetterIndex < creator.length(); currentLetterIndex += 1)
-				{
-					popup.displayText(currentCreator.substring(currentLetterIndex, currentLetterIndex + 1));
-				}
+//				if(currentCreator.equals("what ever"))
+//				{
+//					for (int loop = 0; loop < 5; loop +=1)
+//					{
+//						popup.displayText("Wow, nobody does a lot");
+//					}
+//				}
+//				for(int currentLetterIndex = 0; currentLetterIndex < creator.length(); currentLetterIndex += 1)
+//				{
+//					popup.displayText(currentCreator.substring(currentLetterIndex, currentLetterIndex + 1));
+//				}
 				String topic = currentKahoot.getTopic();
-				for (int letter = currentKahoot.getTopic().length() - 1; letter >= 0; letter -= 1)
-				{
-					popup.displayText(topic.substring(letter, letter + 1));
-				}
+//				for (int letter = currentKahoot.getTopic().length() - 1; letter >= 0; letter -= 1)
+//				{
+//					popup.displayText(topic.substring(letter, letter + 1));
+//				}
 			}
 		}
 		/** Fills list of myKahoots
@@ -78,8 +80,32 @@ public class ListsController
 			popup.displayText("I removed the Kahoot by " + removed.getCreator());
 			popup.displayText("The list now has: " + myKahoots.size() + " items inside.");
 			myKahoots.add(0, removed);
+			popup.displayText("The list is still: " + myKahoots.size() + " items big.");
+			removed = myKahoots.set(2, new Kahoot());
+			popup.displayText("The kahoot by " + removed.getCreator() + " was replaced with one by " + myKahoots.get(2).getCreator());
 			
 		} 
+		
+		private void messWithList()
+		{
+			popup.displayText("The list currently has " + myKahoots.size() + " kahoots in it.");
+			String response = popup.getResponse("Which kahoot in the list would you like to remove?");
+			int deletedKahoot = 0;
+			deletedKahoot = Integer.parseInt(response);
+			if(deletedKahoot > myKahoots.size())
+			{
+				popup.displayText("There isn't a Kahoot in that spot! You're to high!");
+			}
+			else if(deletedKahoot < 0)
+			{
+				popup.displayText("There isn't a Kahoot in that spot! You're too low!");
+			}
+				Kahoot removed = myKahoots.remove(deletedKahoot);
+				popup.displayText("You have removed the kahoot made by " + removed.getCreator() + " from the list!");
+				popup.displayText("There are now only " + myKahoots.size() + " items left in the list!");
+			
+			
+		}
 		
 //		private void mySecondKahoot()
 //		{
