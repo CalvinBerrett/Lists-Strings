@@ -1,21 +1,22 @@
-package lists.controller;
+package tools.controller;
 
 import java.util.List;
 import java.util.ArrayList;
-import lists.model.Kahoot;
-import lists.view.ListsDisplay;
+
+import tools.model.Kahoot;
+import tools.view.PopupDisplay;
 
 public class Controller
 {
 		private List<Kahoot> myKahoots;
 //		private PopupDisplay popup;
-		private ListsDisplay popup;
+		private PopupDisplay popup;
 //		private List<Kahoot> mySecondKahoot;
 		
 		public Controller()
 		{
 			myKahoots = new ArrayList<Kahoot>();
-			popup = new ListsDisplay();
+			popup = new PopupDisplay();
 //			mySecondKahoot = new ArrayList<Kahoot>();
 		}
 		
@@ -92,8 +93,8 @@ public class Controller
 			popup.displayText("The list currently has " + myKahoots.size() + " kahoots in it.");
 			String response = popup.getResponse("Which kahoot in the list would you like to remove?");
 			int deletedKahoot = 0;
-			deletedKahoot = Integer.parseInt(response);
-			if(deletedKahoot > myKahoots.size())
+			deletedKahoot = Integer.parseInt(response) - 1;
+			if(deletedKahoot > (myKahoots.size() - 1))
 			{
 				popup.displayText("There isn't a Kahoot in that spot! You're to high!");
 			}
@@ -106,7 +107,7 @@ public class Controller
 				popup.displayText("There are now only " + myKahoots.size() + " items left in the list!");	
 		}
 		
-		public ListsDisplay getPopu()
+		public PopupDisplay getPopup()
 		{
 			return popup;
 		}
