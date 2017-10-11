@@ -88,6 +88,19 @@ public class Controller
 			
 		} 
 		
+		public int findMaxLength(ArrayList<String> myList)
+		{
+			int max = 0;
+			for (int index = 0; index < myList.size(); index++)
+			{
+				if (myList.get(index).length() > max)
+				{
+					max = myList.get(index).length();
+				}
+			}
+			return max;
+		}
+		
 		private void messWithList()
 		{
 			popup.displayText("The list currently has " + myKahoots.size() + " kahoots in it.");
